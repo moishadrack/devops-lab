@@ -1,0 +1,17 @@
+
+============= LESSON: bowl vs tap =============
+$variable  = BOWL   → captured once, same value forever
+$(command) = TAP    → runs fresh each time, new value every use
+
+EXAMPLE I RAN MYSELF:
+tap_time=$(date +%H:%M:%S)
+for i in 1 2 3; do echo "$tap_time - bowl"; sleep 1; done
+→ all 3 showed SAME time (bowl)
+
+echo "$(date +%H:%M:%S) - bowl"; sleep 1
+echo "$(date +%H:%M:%S) - bowl"
+→ both showed DIFFERENT times (tap)
+
+RULE: If you want a fixed moment → capture once, use a variable.
+      If you want a fresh moment → use $(command) inline.
+===============================================
